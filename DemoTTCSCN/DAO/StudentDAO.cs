@@ -47,7 +47,7 @@ namespace DemoTTCSCN.DAO
         public Student GetStudentByID(string StudentId)
         {
             Object[] obj = { StudentId };
-            string query = $"SELECT * FROM dbo.SinhVien WHERE IDSinhVien = @studentId";
+            string query = $"SELECT * FROM dbo.SinhVien WHERE IDSinhVien = '{StudentId}'";
             DataTable data = DataProvider.Instance.ExecuteQuery(query, obj);
             if (data != null)
             {
