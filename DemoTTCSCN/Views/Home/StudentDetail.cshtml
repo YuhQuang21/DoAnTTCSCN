@@ -1,0 +1,50 @@
+﻿@model DemoTTCSCN.Models.Student
+@{
+    ViewBag.Title = "StudentDetail";
+
+}
+
+@{
+    if (Model != null)
+    {
+        <div style="margin-top:20px">
+            <h4>Student information: @Model.HoTen - @Model.IDSinhVien</h4>
+        </div>
+        <div>
+            <table border-collapse='collapse' border='1' width='100%'>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Date of birth</th>
+                    <th>Gender</th>
+                    <th>Hometown</th>
+                    <th>Address</th>
+                    <th>Faculty</th>
+                    <th>Credits passed</th>
+                    <th>Credits registered</th>
+                    <th>Grate</th>
+                    <th>IdClas</th>
+                </tr>
+                <tr>
+                    <td>@Model.IDSinhVien</td>
+                    <td>@Model.HoTen</td>
+                    <td>@Model.NgaySinh</td>
+                    <td>@Model.GioiTinh</td>
+                    <td>@Model.QueQuan</td>
+                    <td>@Model.DiaChiHT</td>
+                    <td>@Model.KhoaDKi</td>
+                    <td>@Model.SoTCDaDat</td>
+                    <td>@Model.SoTCDaDki</td>
+                    <td>@Model.DiemTichLuy</td>
+                    <td>@Model.IDLop</td>
+                </tr>
+            </table>
+        </div>
+    }
+    else
+    {
+        <h2>No document</h2>
+    }
+}
+
+

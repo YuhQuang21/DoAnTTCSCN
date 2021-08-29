@@ -1,0 +1,27 @@
+﻿@{
+    Layout = null;
+    var a = ViewBag.Test;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/StyleLogin.less" rel="stylesheet/less" />
+    <script src="https://cdn.jsdelivr.net/npm/less@4.1.1"></script>
+    <title>Login</title>
+</head>
+<body>
+    <h2>@a</h2>
+    <div>
+        <div class="log-form">
+            <h2>Login to your account</h2>
+            <form method="post" action="/Account/Login" >
+                <input name="Username" type="text" title="Username" placeholder="Username" required>
+                <input name="Password" type="password" title="Password" placeholder="Password" required>
+                <button type="submit" class="btn" onclick="">Login</button>
+                <a class="forgot" href="#">Forgot Username?</a>
+            </form>
+        </div><!--end log form -->
+    </div>
+</body>
+</html>
