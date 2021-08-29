@@ -31,6 +31,7 @@ namespace DemoTTCSCN.Controllers
                         sessionLogin.Username = userLogin.Username;
                         sessionLogin.Password = userLogin.Password;
                         sessionLogin.IdStudent = userLogin.IdStudent;
+                        sessionLogin.Type = userLogin.Type;
                         Session.Add("UserLogin", sessionLogin);
                     }
                     return RedirectToAction("Index", "Home");
