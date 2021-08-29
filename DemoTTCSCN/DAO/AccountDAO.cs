@@ -56,7 +56,9 @@ namespace DemoTTCSCN.DAO
                     {
                         Username = row["UserName"].ToString(),
                         Password = row["Password"].ToString(),
-                        IdStudent = row["IdSinhVien"].ToString()
+                        IdStudent = row["IdSinhVien"].ToString(),
+                        Type = row["Type"] != null ? Convert.ToInt32(row["Type"]) : 1
+                        
                     };
                     return userLogin;
                 }
