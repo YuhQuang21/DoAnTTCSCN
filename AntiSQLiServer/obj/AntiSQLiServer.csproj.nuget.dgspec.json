@@ -1,0 +1,82 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\BUI DOAN QUANG HUY\\source\\repos\\AntiSQLiServer\\AntiSQLiServer\\AntiSQLiServer.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\BUI DOAN QUANG HUY\\source\\repos\\AntiSQLiServer\\AntiSQLiServer\\AntiSQLiServer.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\BUI DOAN QUANG HUY\\source\\repos\\AntiSQLiServer\\AntiSQLiServer\\AntiSQLiServer.csproj",
+        "projectName": "AntiSQLiServer",
+        "projectPath": "C:\\Users\\BUI DOAN QUANG HUY\\source\\repos\\AntiSQLiServer\\AntiSQLiServer\\AntiSQLiServer.csproj",
+        "packagesPath": "C:\\Users\\BUI DOAN QUANG HUY\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\BUI DOAN QUANG HUY\\source\\repos\\AntiSQLiServer\\AntiSQLiServer\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\BUI DOAN QUANG HUY\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "D:\\Source Code\\DoAnTTCSCN\\AntiSqlInjection\\AntiSqlInjection.csproj": {
+                "projectPath": "D:\\Source Code\\DoAnTTCSCN\\AntiSqlInjection\\AntiSqlInjection.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.303\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Source Code\\DoAnTTCSCN\\AntiSqlInjection\\AntiSqlInjection.csproj": {
+      "restore": {
+        "projectUniqueName": "D:\\Source Code\\DoAnTTCSCN\\AntiSqlInjection\\AntiSqlInjection.csproj",
+        "projectName": "AntiSqlInjection",
+        "projectPath": "D:\\Source Code\\DoAnTTCSCN\\AntiSqlInjection\\AntiSqlInjection.csproj"
+      },
+      "frameworks": {
+        "net472": {}
+      }
+    }
+  }
+}
