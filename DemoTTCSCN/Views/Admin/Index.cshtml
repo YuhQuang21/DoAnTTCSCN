@@ -1,0 +1,29 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ViewBag.Title = "System Management";
+}
+<div class="container body-content">
+    <h2>Đăng nhập thành công với quyền admin</h2>
+</div>
+<input type="button" value="Open Child" onclick="OpenChild()" class="btn btn-primary" />
+<div class="container">
+    <label class="label label-default" for="name">Name:</label>
+    <input class="text-info" id="name" />
+</div>
+<div class="container">
+    <label class="label label-default" for="age">Age:</label>
+    <input class="text-info " id="age" />
+</div>
+@section scripts{
+    <script>
+        window.SaveData = function (name, age) {
+            $("#name").val(name);
+            $("#age").val(age);
+        }
+        function OpenChild() {
+            window.open("https://localhost:44310/Admin/Index", "_blank", "width=500,height=400,0,status=0,");
+        }
+    </script>
+}
+

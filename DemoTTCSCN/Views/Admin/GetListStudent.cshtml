@@ -1,0 +1,38 @@
+﻿@model List<DemoTTCSCN.Dto.StudentDto>
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ViewBag.Title = "List Student";
+}
+<div class="container" style="width:70%">
+    @{ if (Model != null)
+        {
+            <div style="margin-top:20px">
+                <h3>Danh sách sinh viên:</h3>
+            </div>
+            <div>
+                <table border-collapse='collapse' border='1' width='70%'>
+                    <thead>
+                        <tr>
+                            <td align="center">Id</td>
+                            <td align="center">Name</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{ foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td align="center"><a href="/Detail/@item.IdStudent" style="text-decoration:none">@item.IdStudent</a></td>
+                                    <td align="center">@item.Name</td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+        }
+        else
+        {
+            <h2>No document</h2>
+        }
+    }
+</div>

@@ -16,12 +16,14 @@ namespace AntiSQLInjection
 		comment_at_the_end_of_statement,
 		stacking_queries,
 		not_in_allowed_statement,
-		union_set
+		union_set,
+		none
 	}
 
 	public class TSQLInjection
 	{
 		private ESQLInjectionType type = ESQLInjectionType.syntax_error;
+		private List<String> _parse;
 
 		public TSQLInjection(ESQLInjectionType pType)
 		{
@@ -41,10 +43,21 @@ namespace AntiSQLInjection
 		{
 			return description;
 		}
-
+		public List<String> getParse()
+        {
+			return _parse;
+        }
+		public void setType(ESQLInjectionType type)
+        {
+			this.type = type;
+        }
 		public void setDescription(String description)
 		{
 			this.description = description;
+		}
+		public void setParse(String parse)
+		{
+			this._parse.Add(parse);
 		}
 
 	}
@@ -56,7 +69,7 @@ namespace AntiSQLInjection
 		private List<TSQLInjection> sqlInjections = null;
 		private List<TSqlStatementType> enabledStatements = null;
 
-		private Boolean  e_syntax_error = true;
+		private Boolean e_syntax_error = true;
 		private Boolean e_always_true_condition = true;
 		private Boolean e_always_false_condition = true;
 		private Boolean e_comment_at_the_end_of_statement = true;
@@ -138,6 +151,9 @@ namespace AntiSQLInjection
 			this.sqlParser = new TGSqlParser(dbVendor);
 			this.enabledStatements = new List<TSqlStatementType>();
 			this.enabledStatements.Add(TSqlStatementType.sstSelect);
+			this.enabledStatements.Add(TSqlStatementType.sstUpdate);
+			this.enabledStatements.Add(TSqlStatementType.sstInsert);
+			this.enabledStatements.Add(TSqlStatementType.sstDelete);
 		}
 
 		/**
@@ -213,13 +229,24 @@ namespace AntiSQLInjection
 			Boolean ret = false;
 			if (!this.e_always_true_condition) {return false;}
 			if (this.sqlParser.SqlStatements.Count() == 0) {return ret;}
-			if (this.sqlParser.SqlStatements[0].WhereClause != null){
+			if (this.sqlParser.SqlStatements[0].WhereClause != null)
+			{ 
 				GEval e = new GEval(null);
 				this.sqlParser.SqlStatements[0].WhereClause.PostOrderTraverse(e.eavl);
+				//var startQuery = this.sqlParser.SqlStatements[0].StartToken.AsPrettyText.ToString();
+				//var whereClause = $"\nWhere Clause:" +
+				//	$"\n\tStart:{this.sqlParser.SqlStatements[0].WhereClause.StartToken.AsPrettyText} => { this.sqlParser.SqlStatements[0].WhereClauseAsPrettyText}" +
+				//	$"\n\tEnd:{this.sqlParser.SqlStatements[0].WhereClause.EndToken.AsPrettyText}";
+				//var tsqlInjection = new TSQLInjection(ESQLInjectionType.none, new List<string> { startQuery, whereClause });
+				//this.getSqlInjections().Add(tsqlInjection);
 				Object t = e.getValue();
 				if (t is Boolean){
-					if (((Boolean) t) == true){
-						this.getSqlInjections().Add(new TSQLInjection(ESQLInjectionType.always_true_condition));
+					if (((Boolean) t) == true)
+					{
+						//thêm đặc tả
+						//this.getSqlInjections().Remove(tsqlInjection);
+						var newTSQLInjection = new TSQLInjection(ESQLInjectionType.always_true_condition);
+						this.getSqlInjections().Add(newTSQLInjection);
 						ret = true;
 					}
 				}
@@ -244,8 +271,10 @@ namespace AntiSQLInjection
                 {
                     if (((Boolean)t) == false)
                     {
-                        this.getSqlInjections().Add(new TSQLInjection(ESQLInjectionType.always_false_condition));
-                        ret = true;
+						//thêm đặc tả
+						//var parse = this.sqlParser.SqlStatements.StartToken.ToString();
+						this.getSqlInjections().Add(new TSQLInjection(ESQLInjectionType.always_true_condition));
+						ret = true;
                     }
                 }
             }
@@ -271,7 +300,9 @@ namespace AntiSQLInjection
 			}
 			if ((st.TokenType == TTokenType.ttDoublehyphenComment) || (st.TokenType == TTokenType.ttSlashStarComment))
 			{
-				this.getSqlInjections().Add(new TSQLInjection(ESQLInjectionType.comment_at_the_end_of_statement));
+				//thêm đặc tả
+				//var parse = this.sqlParser.SqlStatements.StartToken.ToString();
+				this.getSqlInjections().Add(new TSQLInjection(ESQLInjectionType.always_true_condition));
 				ret = true;
 			}
 			return ret;
@@ -283,7 +314,9 @@ namespace AntiSQLInjection
 			if (!this.e_stacking_queries) { return false; }
 			if (this.sqlParser.SqlStatements.Count() > 1)
 			{
-				this.getSqlInjections().Add(new TSQLInjection(ESQLInjectionType.stacking_queries));
+				//thêm đặc tả
+				//var parse = this.sqlParser.SqlStatements.StartToken.ToString();
+				this.getSqlInjections().Add(new TSQLInjection(ESQLInjectionType.always_true_condition));
 				ret = true;
 			}
 			return ret;
@@ -298,7 +331,8 @@ namespace AntiSQLInjection
 			{
 				if (!this.isAllowedStatement(this.sqlParser.SqlStatements[j].SqlStatementType))
 				{
-
+					//thêm đặc tả
+					//var parse = this.sqlParser.SqlStatements.StartToken.ToString();
 					TSQLInjection s = new TSQLInjection(ESQLInjectionType.not_in_allowed_statement);
 					s.setDescription(this.sqlParser.SqlStatements[j].SqlStatementType.ToString());
 					this.getSqlInjections().Add(s);
@@ -321,6 +355,8 @@ namespace AntiSQLInjection
 			TSelectSqlStatement select = (TSelectSqlStatement)stmt;
 			if (select.SelectSetType != TSelectSetType.sltNone)
 			{
+				//thêm đặc tả
+				//var parse = this.sqlParser.SqlStatements.StartToken.ToString();
 				this.getSqlInjections().Add(new TSQLInjection(ESQLInjectionType.union_set));
 				ret = true;
 			}

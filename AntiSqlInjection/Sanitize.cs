@@ -10,18 +10,22 @@ namespace AntiSqlInjection
 {
     public class Sanitize
     {
-        public Exception SanitizeQuery(string query)
+        public Sanitize()
+        {
+
+        }
+        public string SanitizeQuery(string query)
         {
             TAntiSQLInjection anti = new TAntiSQLInjection(TDbVendor.DbVMssql);
-            String mes = "";
+            String msg = "";
             if (anti.isInjected(query))
             {
-                mes = "This is an SQL query contains malicious code\nDetail:";
+                msg = "This request contains invalid SQL statement \n\t$Detail:";
                 for (int i = 0; i < anti.getSqlInjections().Count; i++)
                 {
-                    mes = mes + Environment.NewLine + ("type: " + anti.getSqlInjections()[i].getType() + ", description: " + anti.getSqlInjections()[i].getDescription());
+                    msg = msg + Environment.NewLine + ("\t$-type: " + anti.getSqlInjections()[i].getType() + ", description: " + anti.getSqlInjections()[i].getDescription());
                 }
-                return new Exception(mes);
+                return msg;
             }
             else
             {

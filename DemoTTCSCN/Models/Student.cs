@@ -17,7 +17,7 @@ namespace DemoTTCSCN.Models
         public string KhoaDKi { get; set; }
         public int SoTCDaDat { get; set; }
         public int SoTCDaDki { get; set; }
-        public float DiemTichLuy { get; set; }
+        public double DiemTichLuy { get; set; }
         public string IDLop { get; set; }
         public Student(DataRow row)
         {

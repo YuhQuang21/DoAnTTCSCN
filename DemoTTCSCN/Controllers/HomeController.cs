@@ -3,6 +3,7 @@ using DemoTTCSCN.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
@@ -20,14 +21,14 @@ namespace DemoTTCSCN.Controllers
             }
             return View();
         }
-        public ActionResult StudentDetail()
+        public async Task<ActionResult> StudentDetail()
         {
             UserLogin sessionLogin = Session["UserLogin"] as UserLogin;
             if (sessionLogin == null)
             {
                 return View("Error");
             }
-            var student = StudentDAO.Instance.GetStudentByID(sessionLogin.IdStudent);
+            var student = await StudentDAO.Instance.GetStudentByID(sessionLogin.IdStudent);
             //var s = session.
             //var data = StudentDAO.Instance.GetStudentByID(session)
             return View(student);

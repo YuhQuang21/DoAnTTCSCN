@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 
 namespace DemoTTCSCN.DAO
@@ -32,10 +33,10 @@ namespace DemoTTCSCN.DAO
             }
         }
 
-        public List<Class> GetList()
+        public async Task<List<Class>> GetList()
         {
             var list = new List<Class>();
-            DataTable data = DataProvider.Instance.ExecuteQuery("SELECT * FROM dbo.Class");
+            DataTable data = await DataProvider.Instance.ExecuteQuery("SELECT * FROM dbo.Class");
             foreach (DataRow item in data.Rows)
             {
                 Class obj = new Class(item);

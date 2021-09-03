@@ -1,18 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using DemoTTCSCN.Services;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Web;
+using System.Threading.Tasks;
 
 namespace DemoTTCSCN.DAO
 {
     public class DataProvider
     {
         private static volatile DataProvider instance;
-        private DataProvider() { }
-        private string strConnection = @"Data Source=QUANGHUY; Initial Catalog = S4_N10_QLDiemSV; User Id=sa; Password=Huytuyen2211@; Integrated Security=True";
-        static object key = new object();
+        private SendDataSocketService _sendDataSocketService;
+
+        private DataProvider(SendDataSocketService sendDataSocketService)
+        {
+            _sendDataSocketService = sendDataSocketService;
+        }
+
+        private string strConnection = @"Data Source=QUANGHUY; Initial Catalog =QLDiemSV; User Id=sa; Password=Huytuyen2211@; Integrated Security=True";
+        private static object key = new object();
+
         public static DataProvider Instance
         {
             get
@@ -21,7 +26,7 @@ namespace DemoTTCSCN.DAO
                 {
                     if (instance == null)
                     {
-                        instance = new DataProvider();
+                        instance = new DataProvider(new SendDataSocketService());
                     }
                 }
                 return instance;
@@ -29,58 +34,42 @@ namespace DemoTTCSCN.DAO
         }
 
         // Thuc thi cau lenh va tra ve ket qua la danh sach du lieu (select.....)
-        public DataTable ExecuteQuery(string query, Object[] parameter = null)
+        public async Task<DataTable> ExecuteQuery(string query, string[] parameter = null)
         {
+            var result = await _sendDataSocketService.SendQuery(query, parameter);
+            if (result != null)
+            {
+                ExceptionService.Instance.setException(result);
+                return null;
+            }
             DataTable data = new DataTable("data");
             using (SqlConnection connection = new SqlConnection(strConnection))
             {
-
                 connection.Open();
                 SqlCommand command = new SqlCommand(query, connection);
-                if (parameter != null)
-                {
-                    string[] listPara = query.Split(' ');
-                    int n = 0;
-                    foreach (var item in listPara)
-                    {
-                        if (item.Contains("@"))
-                        {
-                            command.Parameters.Add(new SqlParameter(item, parameter[n].ToString()));
-                            n++;
-                        }
-                    }
 
-                }
                 // trung gian qua mot cai SqlAdapter
                 SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(command);
                 sqlDataAdapter.Fill(data);
                 connection.Close();
-
             }
             return data;
         }
 
-        // Thuc hien truy van insert, update, delete 
-        public int ExecuteNonQuery(string query, Object[] parameter = null)
+        // Thuc hien truy van insert, update, delete
+        public async Task<int> ExecuteNonQuery(string query, string[] parameter = null)
         {
+            var result = await _sendDataSocketService.SendQuery(query, parameter);
+            if (result != null)
+            {
+                ExceptionService.Instance.setException(result);
+                return 0;
+            }
             int data = 0;
             using (SqlConnection connection = new SqlConnection(strConnection))
             {
                 connection.Open();
                 SqlCommand command = new SqlCommand(query, connection);
-                if (parameter != null)
-                {
-                    string[] listPara = query.Split(' ');
-                    int n = 0;
-                    foreach (var item in listPara)
-                    {
-                        if (item.Contains("@"))
-                        {
-                            command.Parameters.AddWithValue(item, parameter[n]);
-                            n++;
-                        }
-                    }
-                }
 
                 // trung gian qua mot cai SqlAdapter
                 data = command.ExecuteNonQuery();
@@ -89,26 +78,19 @@ namespace DemoTTCSCN.DAO
             return data;
         }
 
-        public object ExecuteScalar(string query, Object[] parameter = null)
+        public async Task<object> ExecuteScalar(string query, string[] parameter = null)
         {
+            var result = await _sendDataSocketService.SendQuery(query, parameter);
+            if (result != null)
+            {
+                ExceptionService.Instance.setException(result);
+                return null;
+            }
             object data = 0;
             using (SqlConnection connection = new SqlConnection(strConnection))
             {
                 connection.Open();
                 SqlCommand command = new SqlCommand(query, connection);
-                if (parameter != null)
-                {
-                    string[] listPara = query.Split(' ');
-                    int n = 0;
-                    foreach (var item in listPara)
-                    {
-                        if (item.Contains("@"))
-                        {
-                            command.Parameters.AddWithValue(item, parameter[n]);
-                            n++;
-                        }
-                    }
-                }
 
                 // trung gian qua mot cai SqlAdapter
                 data = command.ExecuteScalar();

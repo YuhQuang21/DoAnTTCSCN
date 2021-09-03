@@ -1,0 +1,27 @@
+﻿
+@{
+    Layout = null;
+    var exception = ViewBag.Error as String;
+    var arr = System.Text.RegularExpressions.Regex.Split(exception, "\\$");
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Error</title>
+</head>
+<body>
+    <div>
+        <h1>502 Server Error</h1>
+        <h4>The server encountered a temporary error and could not complete your request</h4>
+        <br />
+        <br />
+        @for (int i = 0; i < arr.Length; i++)
+        {
+            <span>@arr[i]</span> <br />
+        }
+    </div>
+</body>
+</html>
