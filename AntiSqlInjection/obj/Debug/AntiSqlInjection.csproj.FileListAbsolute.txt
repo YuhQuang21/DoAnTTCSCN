@@ -6,3 +6,11 @@ C:\Users\BUI DOAN QUANG HUY\source\repos\DemoTTCSCN\AntiSqlInjection\obj\Debug\A
 C:\Users\BUI DOAN QUANG HUY\source\repos\DemoTTCSCN\AntiSqlInjection\obj\Debug\AntiSqlInjection.csproj.CopyComplete
 C:\Users\BUI DOAN QUANG HUY\source\repos\DemoTTCSCN\AntiSqlInjection\obj\Debug\AntiSqlInjection.dll
 C:\Users\BUI DOAN QUANG HUY\source\repos\DemoTTCSCN\AntiSqlInjection\obj\Debug\AntiSqlInjection.pdb
+D:\Source Code\DoAnTTCSCN\AntiSqlInjection\bin\Debug\AntiSqlInjection.dll
+D:\Source Code\DoAnTTCSCN\AntiSqlInjection\bin\Debug\AntiSqlInjection.pdb
+D:\Source Code\DoAnTTCSCN\AntiSqlInjection\bin\Debug\gudusoft.gsqlparser.dll
+D:\Source Code\DoAnTTCSCN\AntiSqlInjection\obj\Debug\AntiSqlInjection.csproj.AssemblyReference.cache
+D:\Source Code\DoAnTTCSCN\AntiSqlInjection\obj\Debug\AntiSqlInjection.csproj.CoreCompileInputs.cache
+D:\Source Code\DoAnTTCSCN\AntiSqlInjection\obj\Debug\AntiSqlInjection.csproj.CopyComplete
+D:\Source Code\DoAnTTCSCN\AntiSqlInjection\obj\Debug\AntiSqlInjection.dll
+D:\Source Code\DoAnTTCSCN\AntiSqlInjection\obj\Debug\AntiSqlInjection.pdb

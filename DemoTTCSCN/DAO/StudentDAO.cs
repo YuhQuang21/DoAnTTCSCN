@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 
 namespace DemoTTCSCN.DAO
@@ -32,10 +33,10 @@ namespace DemoTTCSCN.DAO
             }
         }
 
-        public List<Student> GetList()
+        public async Task<List<Student>> GetList()
         {
             var list = new List<Student>();
-            DataTable data = DataProvider.Instance.ExecuteQuery("SELECT * FROM dbo.Student");
+            DataTable data = await DataProvider.Instance.ExecuteQuery("SELECT * FROM dbo.SinhVien");
             foreach (DataRow item in data.Rows)
             {
                 Student obj = new Student(item);
@@ -44,11 +45,11 @@ namespace DemoTTCSCN.DAO
             return list;
         }
 
-        public Student GetStudentByID(string StudentId)
+        public async Task<Student> GetStudentByID(string StudentId)
         {
-            Object[] obj = { StudentId };
+            string[] parameter = { StudentId };
             string query = $"SELECT * FROM dbo.SinhVien WHERE IDSinhVien = '{StudentId}'";
-            DataTable data = DataProvider.Instance.ExecuteQuery(query, obj);
+            DataTable data = await DataProvider.Instance.ExecuteQuery(query, parameter);
             if (data != null)
             {
                 if (data.Rows.Count != 0)
@@ -62,14 +63,14 @@ namespace DemoTTCSCN.DAO
                 return null;
         }
         //Update: Student 
-        public int Update(string idStudent, string hoTen, string quequan, string malop, string gioiTinh, string diaChiHT, DateTime ngaySinh)
+        public async Task<int> Update(Student student)
         {
-            string dateOfBirth = ngaySinh.ToString("yyyy-MM-dd");
+            string[] parameter = { student.QueQuan, student.GioiTinh, student.DiaChiHT, student.SoTCDaDki.ToString(), student.SoTCDaDat.ToString(), student.DiemTichLuy.ToString(), student.IDSinhVien };
             try
             {
                 //
-                string query = $"UPDATE dbo.Student SET IDStudent='{idStudent}', HoTen=N'{hoTen}', QueQuan=N'{quequan}', IDLop='{malop}', GioiTinh=N'{gioiTinh}', DiaChiHT=N'{diaChiHT}', NgaySinh='{dateOfBirth}' WHERE IDStudent='{idStudent}'";
-                DataProvider.Instance.ExecuteNonQuery(query);
+                string query = $"UPDATE dbo.SinhVien SET QueQuan=N'{student.QueQuan}', GioiTinh=N'{student.GioiTinh}', DiaChiHT=N'{student.DiaChiHT}', SoTCDaDki = {student.SoTCDaDki}, SoTCDaDat = {student.SoTCDaDat}, DiemTichLuy = {student.DiemTichLuy} WHERE IDSinhVien='{student.IDSinhVien}'";
+                await DataProvider.Instance.ExecuteNonQuery(query, parameter);
                 return 1;
             }
             catch (Exception ex)
@@ -79,14 +80,14 @@ namespace DemoTTCSCN.DAO
         }
 
         //Create: Student 
-        public int Create(string idStudent, string hoTen, string quequan, string malop, string gioiTinh, string diaChiHT, DateTime ngaySinh)
+        public async Task<int> Create(string idStudent, string hoTen, string quequan, string malop, string gioiTinh, string diaChiHT, DateTime ngaySinh)
         {
-            string dateOfBirth = ngaySinh.ToString("yyyy-MM-dd");
+            string[] parameter = { idStudent, hoTen, quequan, malop, gioiTinh, diaChiHT, ngaySinh.ToString("yyyy-MM-dd") };
             try
             {
                 //
-                string query = $"INSERT INTO dbo.Student(IDStudent, HoTen, QueQuan, IDLop, GioiTinh, DiaChiHT, NgaySinh) VALUES('{idStudent}', N'{hoTen}', N'{quequan}', '{malop}', N'{gioiTinh}', N'{diaChiHT}', '{dateOfBirth}')";
-                DataProvider.Instance.ExecuteNonQuery(query);
+                string query = $"INSERT INTO dbo.Student(IDStudent, HoTen, QueQuan, IDLop, GioiTinh, DiaChiHT, NgaySinh) VALUES('{idStudent}', N'{hoTen}', N'{quequan}', '{malop}', N'{gioiTinh}', N'{diaChiHT}', '{ngaySinh.ToString("yyyy-MM-dd")}')";
+                await DataProvider.Instance.ExecuteNonQuery(query, parameter);
                 return 1;
             }
             catch (Exception ex)
@@ -96,12 +97,12 @@ namespace DemoTTCSCN.DAO
         }
 
         //Delete
-        public int Delete(string idStudent)
+        public async Task<int> Delete(string idStudent)
         {
             try
             {
                 string query = $"DELETE dbo.Student WHERE IDStudent='{idStudent}'";
-                DataProvider.Instance.ExecuteNonQuery(query);
+                await DataProvider.Instance.ExecuteNonQuery(query, new string[] { idStudent });
                 return 1;
             }
             catch (Exception ex)
@@ -111,11 +112,11 @@ namespace DemoTTCSCN.DAO
         }
 
         //Search
-        public List<Student> Search(string search)
+        public async Task<List<Student>> Search(string search)
         {
             var lstResults = new List<Student>();
             string query = $"SELECT * FROM dbo.Student WHERE IDStudent LIKE '%{search}%' OR HoTen LIKE '%{search}%' OR QueQuan LIKE '%{search}%' OR DiaChiHT LIKE '%{search}%' OR GioiTinh LIKE '%{search}%'  OR IDLop LIKE '%{search}%'";
-            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+            DataTable data = await DataProvider.Instance.ExecuteQuery(query, new string[] { search });
             foreach (DataRow item in data.Rows)
             {
                 Student obj = new Student(item);

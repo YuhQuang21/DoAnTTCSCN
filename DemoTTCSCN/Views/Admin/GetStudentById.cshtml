@@ -1,0 +1,83 @@
+﻿@model DemoTTCSCN.Models.Student
+
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    ViewBag.Title = "Student Detail";
+}
+
+@if (TempData["AlertMessage"] != null)
+{
+    <div id="AlertBox" class="alert @TempData["AlertType"] hide" role="alert">
+        @TempData["AlertMessage"]
+    </div>
+}
+@section scripts{
+    <script>
+        $(function () {
+            $('#AlertBox').removeClass('hide');
+            $('#AlertBox').delay(2000).slideUp(500);
+        });
+
+    </script>
+}
+<div>
+    <h4>Information student: @Model.HoTen - @Model.IDSinhVien</h4>
+    <hr />
+    <div class="container mt-4">
+        <form action="/Update" method="post">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group mr-2">
+                        <label for="idSinhVien">Mã sinh viên</label>
+                        <input class="form-control" required type="text" name="idSinhVien" id="idSinhVien" placeholder="Mã sinh viên" value="@Model.IDSinhVien" readonly />
+                    </div>
+                    <div class="form-group mr-2">
+                        <label for="hoTen">Họ tên</label>
+                        <input class="form-control" required type="text" name="hoTen" id="hoTen" placeholder="Họ tên" value="@Model.HoTen" readonly />
+                    </div>
+                    <div class="form-group mr-2">
+                        <label for="ngaySinh">Ngày sinh</label>
+                        <input class="form-control" required type="text" name="ngaySinh" id="ngaySinh" placeholder="Ngày sinh" value="@Model.NgaySinh.ToShortDateString()" readonly />
+                    </div>
+                    <div class="form-group mr-2">
+                        <label for="gioiTinh">Giới tính</label>
+                        <input class="form-control" required type="text" name="gioiTinh" id="gioiTinh" placeholder="Gới tính" value="@Model.GioiTinh" />
+                    </div>
+                    <div class="form-group mr-2">
+                        <label for="queQuan">Quê quán</label>
+                        <input class="form-control" required type="text" name="queQuan" id="queQuan" placeholder="Quê quán" value="@Model.QueQuan" />
+                    </div>
+                    <div class="form-group mr-2">
+                        <label for="diaChi">Địa chỉ</label>
+                        <input class="form-control" required type="text" name="diaChi" id="diaChi" placeholder="Địa chỉ" value="@Model.DiaChiHT" />
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group mr-2">
+                        <label for="khoaDangKy">Khoa đăng ký</label>
+                        <input class="form-control" required type="text" name="khoaDangKy" id="khoaDangKy" placeholder="Khoa đăng ký" value="@Model.KhoaDKi" readonly />
+                    </div>
+                    <div class="form-group mr-2">
+                        <label for="soTinChiDaDangKy">Số tín chỉ đã đăng ký</label>
+                        <input class="form-control" required type="text" name="soTinChiDaDangKy" id="soTinChiDaDangKy" placeholder="Số tín chỉ đã đăng ký" value="@Model.SoTCDaDki" />
+                    </div>
+                    <div class="form-group mr-2">
+                        <label for="soTinChiDaDat">Số tín chỉ đã đạt</label>
+                        <input class="form-control" required type="text" name="soTinChiDaDat" id="soTinChiDaDat" placeholder="Số tín chỉ đã đạt" value="@Model.SoTCDaDat" />
+                    </div>
+                    <div class="form-group mr-2">
+                        <label for="diemTichLuy">Điểm tích luỹ</label>
+                        <input class="form-control" required type="text" name="diemTichLuy" id="diemTichLuy" placeholder="Điểm tích luỹ" value="@Model.DiemTichLuy" />
+                    </div>
+                    <div class="form-group mr-2">
+                        <label for="idClass">Mã lớp</label>
+                        <input class="form-control" required type="text" name="idClass" id="idClass" placeholder="Mã lớp" value="@Model.IDLop" readonly />
+                    </div>
+                </div>
+            </div>
+            <input style="width: 100%" class="btn btn-dark" type="submit" name="name" value="Sửa" />
+        </form>
+    </div>
+
+</div>
+
