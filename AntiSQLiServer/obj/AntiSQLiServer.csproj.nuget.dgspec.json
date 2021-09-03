@@ -1,17 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\BUI DOAN QUANG HUY\\source\\repos\\AntiSQLiServer\\AntiSQLiServer\\AntiSQLiServer.csproj": {}
+    "D:\\Source Code\\DoAnTTCSCN\\AntiSQLiServer\\AntiSQLiServer.csproj": {}
   },
   "projects": {
-    "C:\\Users\\BUI DOAN QUANG HUY\\source\\repos\\AntiSQLiServer\\AntiSQLiServer\\AntiSQLiServer.csproj": {
+    "D:\\Source Code\\DoAnTTCSCN\\AntiSqlInjection\\AntiSqlInjection.csproj": {
+      "restore": {
+        "projectUniqueName": "D:\\Source Code\\DoAnTTCSCN\\AntiSqlInjection\\AntiSqlInjection.csproj",
+        "projectName": "AntiSqlInjection",
+        "projectPath": "D:\\Source Code\\DoAnTTCSCN\\AntiSqlInjection\\AntiSqlInjection.csproj"
+      },
+      "frameworks": {
+        "net472": {}
+      }
+    },
+    "D:\\Source Code\\DoAnTTCSCN\\AntiSQLiServer\\AntiSQLiServer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\BUI DOAN QUANG HUY\\source\\repos\\AntiSQLiServer\\AntiSQLiServer\\AntiSQLiServer.csproj",
+        "projectUniqueName": "D:\\Source Code\\DoAnTTCSCN\\AntiSQLiServer\\AntiSQLiServer.csproj",
         "projectName": "AntiSQLiServer",
-        "projectPath": "C:\\Users\\BUI DOAN QUANG HUY\\source\\repos\\AntiSQLiServer\\AntiSQLiServer\\AntiSQLiServer.csproj",
+        "projectPath": "D:\\Source Code\\DoAnTTCSCN\\AntiSQLiServer\\AntiSQLiServer.csproj",
         "packagesPath": "C:\\Users\\BUI DOAN QUANG HUY\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\BUI DOAN QUANG HUY\\source\\repos\\AntiSQLiServer\\AntiSQLiServer\\obj\\",
+        "outputPath": "D:\\Source Code\\DoAnTTCSCN\\AntiSQLiServer\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -66,16 +76,6 @@
           },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.303\\RuntimeIdentifierGraph.json"
         }
-      }
-    },
-    "D:\\Source Code\\DoAnTTCSCN\\AntiSqlInjection\\AntiSqlInjection.csproj": {
-      "restore": {
-        "projectUniqueName": "D:\\Source Code\\DoAnTTCSCN\\AntiSqlInjection\\AntiSqlInjection.csproj",
-        "projectName": "AntiSqlInjection",
-        "projectPath": "D:\\Source Code\\DoAnTTCSCN\\AntiSqlInjection\\AntiSqlInjection.csproj"
-      },
-      "frameworks": {
-        "net472": {}
       }
     }
   }

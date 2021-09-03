@@ -16,8 +16,8 @@
   "libraries": {
     "AntiSqlInjection/1.0.0": {
       "type": "project",
-      "path": "D:\\Source Code\\DoAnTTCSCN\\AntiSqlInjection\\AntiSqlInjection.csproj",
-      "msbuildProject": "D:\\Source Code\\DoAnTTCSCN\\AntiSqlInjection\\AntiSqlInjection.csproj"
+      "path": "../AntiSqlInjection/AntiSqlInjection.csproj",
+      "msbuildProject": "../AntiSqlInjection/AntiSqlInjection.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -32,11 +32,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\BUI DOAN QUANG HUY\\source\\repos\\AntiSQLiServer\\AntiSQLiServer\\AntiSQLiServer.csproj",
+      "projectUniqueName": "D:\\Source Code\\DoAnTTCSCN\\AntiSQLiServer\\AntiSQLiServer.csproj",
       "projectName": "AntiSQLiServer",
-      "projectPath": "C:\\Users\\BUI DOAN QUANG HUY\\source\\repos\\AntiSQLiServer\\AntiSQLiServer\\AntiSQLiServer.csproj",
+      "projectPath": "D:\\Source Code\\DoAnTTCSCN\\AntiSQLiServer\\AntiSQLiServer.csproj",
       "packagesPath": "C:\\Users\\BUI DOAN QUANG HUY\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\BUI DOAN QUANG HUY\\source\\repos\\AntiSQLiServer\\AntiSQLiServer\\obj\\",
+      "outputPath": "D:\\Source Code\\DoAnTTCSCN\\AntiSQLiServer\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
