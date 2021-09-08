@@ -47,7 +47,19 @@ namespace DemoTTCSCN.DAO
             {
                 connection.Open();
                 SqlCommand command = new SqlCommand(query, connection);
-
+                if (parameter != null)
+                {
+                    string[] listPara = query.Split(' ');
+                    int n = 0;
+                    foreach (var item in listPara)
+                    {
+                        if (item.Contains("@"))
+                        {
+                            command.Parameters.AddWithValue(item, parameter[n]);
+                            n++;
+                        }
+                    }
+                }
                 // trung gian qua mot cai SqlAdapter
                 SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(command);
                 sqlDataAdapter.Fill(data);

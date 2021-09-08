@@ -22,3 +22,27 @@ C:\Users\BUI DOAN QUANG HUY\source\repos\AntiSQLiServer\AntiSQLiServer\bin\Debug
 C:\Users\BUI DOAN QUANG HUY\source\repos\AntiSQLiServer\AntiSQLiServer\bin\Debug\netcoreapp3.1\gudusoft.gsqlparser.dll
 C:\Users\BUI DOAN QUANG HUY\source\repos\AntiSQLiServer\AntiSQLiServer\bin\Debug\netcoreapp3.1\AntiSqlInjection.pdb
 C:\Users\BUI DOAN QUANG HUY\source\repos\AntiSQLiServer\AntiSQLiServer\obj\Debug\netcoreapp3.1\AntiSQLiServer.csproj.CopyComplete
+C:\Users\BUI DOAN QUANG HUY\Desktop\New folder (2)\DoAnTTCSCN\AntiSQLiServer\bin\Debug\netcoreapp3.1\appsettings.Development.json
+C:\Users\BUI DOAN QUANG HUY\Desktop\New folder (2)\DoAnTTCSCN\AntiSQLiServer\bin\Debug\netcoreapp3.1\appsettings.json
+C:\Users\BUI DOAN QUANG HUY\Desktop\New folder (2)\DoAnTTCSCN\AntiSQLiServer\bin\Debug\netcoreapp3.1\AntiSQLiServer.exe
+C:\Users\BUI DOAN QUANG HUY\Desktop\New folder (2)\DoAnTTCSCN\AntiSQLiServer\bin\Debug\netcoreapp3.1\AntiSQLiServer.deps.json
+C:\Users\BUI DOAN QUANG HUY\Desktop\New folder (2)\DoAnTTCSCN\AntiSQLiServer\bin\Debug\netcoreapp3.1\AntiSQLiServer.runtimeconfig.json
+C:\Users\BUI DOAN QUANG HUY\Desktop\New folder (2)\DoAnTTCSCN\AntiSQLiServer\bin\Debug\netcoreapp3.1\AntiSQLiServer.runtimeconfig.dev.json
+C:\Users\BUI DOAN QUANG HUY\Desktop\New folder (2)\DoAnTTCSCN\AntiSQLiServer\bin\Debug\netcoreapp3.1\AntiSQLiServer.dll
+C:\Users\BUI DOAN QUANG HUY\Desktop\New folder (2)\DoAnTTCSCN\AntiSQLiServer\bin\Debug\netcoreapp3.1\AntiSQLiServer.pdb
+C:\Users\BUI DOAN QUANG HUY\Desktop\New folder (2)\DoAnTTCSCN\AntiSQLiServer\bin\Debug\netcoreapp3.1\AntiSqlInjection.dll
+C:\Users\BUI DOAN QUANG HUY\Desktop\New folder (2)\DoAnTTCSCN\AntiSQLiServer\bin\Debug\netcoreapp3.1\gudusoft.gsqlparser.dll
+C:\Users\BUI DOAN QUANG HUY\Desktop\New folder (2)\DoAnTTCSCN\AntiSQLiServer\bin\Debug\netcoreapp3.1\AntiSqlInjection.pdb
+C:\Users\BUI DOAN QUANG HUY\Desktop\New folder (2)\DoAnTTCSCN\AntiSQLiServer\obj\Debug\netcoreapp3.1\AntiSQLiServer.csproj.AssemblyReference.cache
+C:\Users\BUI DOAN QUANG HUY\Desktop\New folder (2)\DoAnTTCSCN\AntiSQLiServer\obj\Debug\netcoreapp3.1\AntiSQLiServer.AssemblyInfoInputs.cache
+C:\Users\BUI DOAN QUANG HUY\Desktop\New folder (2)\DoAnTTCSCN\AntiSQLiServer\obj\Debug\netcoreapp3.1\AntiSQLiServer.AssemblyInfo.cs
+C:\Users\BUI DOAN QUANG HUY\Desktop\New folder (2)\DoAnTTCSCN\AntiSQLiServer\obj\Debug\netcoreapp3.1\AntiSQLiServer.csproj.CoreCompileInputs.cache
+C:\Users\BUI DOAN QUANG HUY\Desktop\New folder (2)\DoAnTTCSCN\AntiSQLiServer\obj\Debug\netcoreapp3.1\AntiSQLiServer.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\BUI DOAN QUANG HUY\Desktop\New folder (2)\DoAnTTCSCN\AntiSQLiServer\obj\Debug\netcoreapp3.1\staticwebassets\AntiSQLiServer.StaticWebAssets.Manifest.cache
+C:\Users\BUI DOAN QUANG HUY\Desktop\New folder (2)\DoAnTTCSCN\AntiSQLiServer\obj\Debug\netcoreapp3.1\staticwebassets\AntiSQLiServer.StaticWebAssets.xml
+C:\Users\BUI DOAN QUANG HUY\Desktop\New folder (2)\DoAnTTCSCN\AntiSQLiServer\obj\Debug\netcoreapp3.1\scopedcss\bundle\AntiSQLiServer.styles.css
+C:\Users\BUI DOAN QUANG HUY\Desktop\New folder (2)\DoAnTTCSCN\AntiSQLiServer\obj\Debug\netcoreapp3.1\AntiSQLiServer.RazorTargetAssemblyInfo.cache
+C:\Users\BUI DOAN QUANG HUY\Desktop\New folder (2)\DoAnTTCSCN\AntiSQLiServer\obj\Debug\netcoreapp3.1\AntiSQLiServer.csproj.CopyComplete
+C:\Users\BUI DOAN QUANG HUY\Desktop\New folder (2)\DoAnTTCSCN\AntiSQLiServer\obj\Debug\netcoreapp3.1\AntiSQLiServer.dll
+C:\Users\BUI DOAN QUANG HUY\Desktop\New folder (2)\DoAnTTCSCN\AntiSQLiServer\obj\Debug\netcoreapp3.1\AntiSQLiServer.pdb
+C:\Users\BUI DOAN QUANG HUY\Desktop\New folder (2)\DoAnTTCSCN\AntiSQLiServer\obj\Debug\netcoreapp3.1\AntiSQLiServer.genruntimeconfig.cache

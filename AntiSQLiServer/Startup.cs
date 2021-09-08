@@ -6,6 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Net;
 using System.Net.WebSockets;
 using System.Text;
@@ -69,12 +70,29 @@ namespace AntiSQLiServer
                 {
                     string msg = Encoding.UTF8.GetString(new ArraySegment<byte>(buffer, 0, result.Count));
                     var messages = await FormatQuery(msg);
-                    Console.WriteLine($"Query: {messages[0]}");
-                    Console.WriteLine($"Structure template:{messages[1]}");
-                    Console.WriteLine("Query parsing............");
+                    Console.WriteLine($"Query input: {messages[0]}");
+                    Console.WriteLine("-----------------------------------------------Structure Validate------------------------------------------------------");
+                    Console.WriteLine($"Structure :{messages[1]}");
+                    Console.WriteLine("----------------------------------------------Parameter separation-----------------------------------------------------");
+                    Console.WriteLine("Parmameter:");
+                    for (int i = 2; i < messages.Count; i++)
+                    {
+                        Console.WriteLine($"\t{messages[i]}");
+                    }
                     var resultSanitize = _sanitize.SanitizeQuery(messages[0]) != null ? _sanitize.SanitizeQuery(msg) : "This query is valid!";
                     Console.WriteLine($"Result: {resultSanitize}");
-                    Console.WriteLine("-----------------------------------------------------------------------------------------------------------------------");
+                    if (resultSanitize.Contains("This query is valid!"))
+                    {
+                        Console.WriteLine($"=> Accepted:{messages[0]}");
+                    }
+                    else
+                    {
+                        Console.WriteLine($"=> Denied:{messages[0]}");
+                        var isLog = await Logger(new string[] { messages[0], resultSanitize });
+                        if (isLog) Console.WriteLine("Log succsess!");
+                        else Console.WriteLine("Log fail!");
+                    }
+                    Console.WriteLine("------------------------------------------------------------------------------------------------------------------------\n");
                     await webSocket.SendAsync(
                         new ArraySegment<byte>(Encoding.UTF8.GetBytes($"{resultSanitize}")),
                         result.MessageType,
@@ -99,8 +117,38 @@ namespace AntiSQLiServer
             }
             originParams = originParams.Trim();
             result.Add(originParams);
-
+            for (int i = 1; i < parameter.Length; i++)
+            {
+                result.Add(parameter[i]);
+            }
             return result;
+        }
+        private static async Task<bool> Logger(string[] query)
+        {
+            using (FileStream fileStream = new FileStream(@"C:\Users\BUI DOAN QUANG HUY\Desktop\New folder (2)\DoAnTTCSCN\AntiSQLiServer\Log\Log.txt", FileMode.Append))
+            {
+                StreamWriter streamWriter = new StreamWriter(fileStream);
+                try
+                {
+                    foreach (var item in query)
+                    {
+                        await streamWriter.WriteAsync(item);
+                    }
+                    await streamWriter.WriteAsync("\n");
+                    streamWriter.Close();
+                    fileStream.Close();
+                    return true;
+                }
+                catch (Exception)
+                {
+                }
+                finally
+                {
+                    streamWriter.Close();
+                    fileStream.Close();
+                }
+            }
+            return false;
         }
     }
 }

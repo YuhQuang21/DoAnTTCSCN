@@ -1,0 +1,114 @@
+SELECT * FROM dbo.Account WHERE UserName = 'admin/*'; SHUTDOWN;-- '*/' and Password = '8utasgdyusag7dt187ed'
+This request contains invalid SQL statement 
+	$Detail:
+	$-type: syntax_error, description: SHUTDOWN(1,55) expected token:Error when tokenlize
+SELECT * FROM dbo.Account WHERE UserName = 'admin' OR '1' = '1'q' and Password = 'weqweqwe'This request contains invalid SQL statement 
+	$Detail:
+	$-type: syntax_error, description: q(1,64) expected token:; SELECT * FROM dbo.Account WHERE UserName = 'admin/*'; SHUTDOWN;-- '*/' and Password = 'qwewe'This request contains invalid SQL statement 
+	$Detail:
+	$-type: syntax_error, description: SHUTDOWN(1,55) expected token:Error when tokenlizeSELECT * FROM dbo.SinhVien WHERE IDSinhVien = 'AT16150348';'This request contains invalid SQL statement 
+	$Detail:
+	$-type: syntax_error, description: '$AT16150348'(1,60) expected token:Error when tokenlize
+SELECT * FROM dbo.Account WHERE UserName = 'admin' OR '1' = '1'' and Password = '1'This request contains invalid SQL statement 
+	$Detail:
+	$-type: syntax_error, description: 1(1,82) expected token:; 
+SELECT * FROM dbo.Account WHERE UserName = 'admin' OR '1' = '1'' and Password = '123'This request contains invalid SQL statement 
+	$Detail:
+	$-type: syntax_error, description: 123(1,82) expected token:; SELECT * FROM dbo.Account WHERE UserName = 'hi' or 1=1--' and Password = '123'This request contains invalid SQL statement 
+	$Detail:
+	$-type: always_true_condition, description: always_true_condition
+	$-type: always_true_condition, description: always_true_condition
+SELECT * FROM dbo.Account WHERE UserName = 'hi' or '1 '= '1' --' and Password = '123'This request contains invalid SQL statement 
+	$Detail:
+	$-type: always_true_condition, description: always_true_condition
+SELECT * FROM dbo.Account WHERE UserName = 'hi' or '1'= '1' --' and Password = '1'This request contains invalid SQL statement 
+	$Detail:
+	$-type: always_true_condition, description: always_true_condition
+	$-type: always_true_condition, description: always_true_condition
+SELECT * FROM dbo.Account WHERE UserName = 'admin' or '1'= '1' --' and Password = '123qwe'This request contains invalid SQL statement 
+	$Detail:
+	$-type: always_true_condition, description: always_true_condition
+	$-type: always_true_condition, description: always_true_condition
+SELECT * FROM dbo.Account WHERE UserName = 'admin' or '1'= '1'' and Password = '123'This request contains invalid SQL statement 
+	$Detail:
+	$-type: syntax_error, description: 123(1,81) expected token:; 
+SELECT * FROM dbo.Account WHERE UserName = 'admin' OR 1 = 1' and Password = '123qwe'This request contains invalid SQL statement 
+	$Detail:
+	$-type: syntax_error, description: ' and Password = '(1,60) expected token:; 
+SELECT * FROM dbo.Account WHERE UserName = 'admin' OR '1' = '1'' and Password = '123'This request contains invalid SQL statement 
+	$Detail:
+	$-type: syntax_error, description: 123(1,82) expected token:; 
+SELECT * FROM dbo.Account WHERE UserName = 'admin' OR '1' = '1' --' and Password = '123qwe'This request contains invalid SQL statement 
+	$Detail:
+	$-type: always_true_condition, description: always_true_condition
+	$-type: always_true_condition, description: always_true_condition
+SELECT * FROM dbo.Account WHERE UserName = 'admin' AND '1' = '2'' and Password = '123qwe'This request contains invalid SQL statement 
+	$Detail:
+	$-type: syntax_error, description: 123(1,83) expected token:; 
+SELECT * FROM dbo.Account WHERE UserName = 'admin' AND '1' = '2' and Password = '123qwe'This request contains invalid SQL statement 
+	$Detail:
+	$-type: syntax_error, description: $admin(1,89) expected token:; 
+SELECT * FROM dbo.Account WHERE UserName = 'admin' AND '1' = '2' and Password = '123qwe'This request contains invalid SQL statement 
+	$Detail:
+	$-type: syntax_error, description: $admin(1,89) expected token:; 
+SELECT * FROM dbo.Account WHERE UserName = 'admin' AND '1' = '2' and Password = '123qwe'This request contains invalid SQL statement 
+	$Detail:
+	$-type: syntax_error, description: $admin(1,89) expected token:; 
+SELECT * FROM dbo.Account WHERE UserName = 'admin' AND '1' = '2' and Password = '123qwe'This request contains invalid SQL statement 
+	$Detail:
+	$-type: syntax_error, description: $admin(1,89) expected token:; 
+SELECT * FROM dbo.Account WHERE UserName = 'admin' AND if ( 1 = 1, sleep(10), false) ;' and Password = '123qwe'This request contains invalid SQL statement 
+	$Detail:
+	$-type: syntax_error, description: ' and Password = '(1,87) expected token:Error when tokenlize
+$123qwe(1,155) expected token:Error when tokenlize
+end of input(-1,-1) expected token:Unknown
+;(1,86) expected token:Unknown
+;(1,154) expected token:Unknown
+SELECT * FROM dbo.Account WHERE UserName = 'admin' AND if ( 1 = 1, sleep(10), false) --' and Password = '123qwe'This request contains invalid SQL statement 
+	$Detail:
+	$-type: syntax_error, description: end of input(-1,-1) expected token:Unknown
+end of input(-1,-1) expected token:Unknown
+SELECT * FROM dbo.Account WHERE UserName = 'admin' AND if ( 1 = 1, sleep(10), false) --' and Password = '123qwe'This request contains invalid SQL statement 
+	$Detail:
+	$-type: syntax_error, description: end of input(-1,-1) expected token:Unknown
+end of input(-1,-1) expected token:Unknown
+SELECT * FROM dbo.Account WHERE UserName = 'admin' OR '1' = '1' --' and Password = '123qwe'This request contains invalid SQL statement 
+	$Detail:
+	$-type: always_true_condition, description: always_true_condition
+	$-type: always_true_condition, description: always_true_condition
+SELECT * FROM dbo.Account WHERE UserName = '1' UNION SELECT * FROM SinhVien WHERE ID = 'AT15042571'--' and Password = '123qwe'This request contains invalid SQL statement 
+	$Detail:
+	$-type: always_true_condition, description: always_true_condition
+	$-type: union_set, description: union_set
+SELECT * FROM dbo.Account WHERE UserName = 'admin'; SHUTDOWN;--' and Password = '123qwe'This request contains invalid SQL statement 
+	$Detail:
+	$-type: syntax_error, description: SHUTDOWN(1,53) expected token:Error when tokenlize
+SELECT * FROM dbo.Account WHERE UserName = 'admin' OR '1' = '1'' and Password = '123'This request contains invalid SQL statement 
+	$Detail:
+	$-type: syntax_error, description: 123(1,82) expected token:; 
+SELECT * FROM dbo.Account WHERE UserName = 'admin' OR '1' = '1' --' and Password = '123123'This request contains invalid SQL statement 
+	$Detail:
+	$-type: always_true_condition, description: always_true_condition
+	$-type: always_true_condition, description: always_true_condition
+SELECT * FROM dbo.Account WHERE UserName = 'admin' AND '1' = '1' --' and Password = '123213'This request contains invalid SQL statement 
+	$Detail:
+	$-type: always_true_condition, description: always_true_condition
+SELECT * FROM dbo.Account WHERE UserName = 'admin/*'; SHUTDOWN;-- '*/' and Password = '123213'This request contains invalid SQL statement 
+	$Detail:
+	$-type: syntax_error, description: SHUTDOWN(1,55) expected token:Error when tokenlize
+SELECT * FROM dbo.Account WHERE UserName = 'admin/*'; SHUTDOWN;-- '*/' and Password = '767utyfv'This request contains invalid SQL statement 
+	$Detail:
+	$-type: syntax_error, description: SHUTDOWN(1,55) expected token:Error when tokenlize
+SELECT * FROM dbo.Account WHERE UserName = 'admin' OR '1' = '1'' and Password = '1231qwe'This request contains invalid SQL statement 
+	$Detail:
+	$-type: syntax_error, description: 1231(1,82) expected token:; 
+SELECT * FROM dbo.Account WHERE UserName = '1' AND if( 1=1, sleep(10), false) --' and Password = 'qweqweqwe'This request contains invalid SQL statement 
+	$Detail:
+	$-type: syntax_error, description: end of input(-1,-1) expected token:Unknown
+end of input(-1,-1) expected token:Unknown
+SELECT * FROM dbo.Account WHERE UserName = 'admin' AND '1' = '2' and Password = '123123123'This request contains invalid SQL statement 
+	$Detail:
+	$-type: syntax_error, description: $admin(1,92) expected token:; 
+SELECT * FROM dbo.Account WHERE UserName = 'admin' and Password = 'admin' OR '1' = '1'This request contains invalid SQL statement 
+	$Detail:
+	$-type: syntax_error, description: $admin$admin(1,87) expected token:; 

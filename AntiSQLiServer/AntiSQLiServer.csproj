@@ -8,4 +8,8 @@
     <ProjectReference Include="D:\Source Code\DoAnTTCSCN\AntiSqlInjection\AntiSqlInjection.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Log\" />
+  </ItemGroup>
+
 </Project>

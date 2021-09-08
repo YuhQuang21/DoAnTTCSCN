@@ -14,3 +14,11 @@ D:\Source Code\DoAnTTCSCN\AntiSqlInjection\obj\Debug\AntiSqlInjection.csproj.Cor
 D:\Source Code\DoAnTTCSCN\AntiSqlInjection\obj\Debug\AntiSqlInjection.csproj.CopyComplete
 D:\Source Code\DoAnTTCSCN\AntiSqlInjection\obj\Debug\AntiSqlInjection.dll
 D:\Source Code\DoAnTTCSCN\AntiSqlInjection\obj\Debug\AntiSqlInjection.pdb
+C:\Users\BUI DOAN QUANG HUY\Desktop\New folder (2)\DoAnTTCSCN\AntiSqlInjection\bin\Debug\AntiSqlInjection.dll
+C:\Users\BUI DOAN QUANG HUY\Desktop\New folder (2)\DoAnTTCSCN\AntiSqlInjection\bin\Debug\AntiSqlInjection.pdb
+C:\Users\BUI DOAN QUANG HUY\Desktop\New folder (2)\DoAnTTCSCN\AntiSqlInjection\bin\Debug\gudusoft.gsqlparser.dll
+C:\Users\BUI DOAN QUANG HUY\Desktop\New folder (2)\DoAnTTCSCN\AntiSqlInjection\obj\Debug\AntiSqlInjection.csproj.AssemblyReference.cache
+C:\Users\BUI DOAN QUANG HUY\Desktop\New folder (2)\DoAnTTCSCN\AntiSqlInjection\obj\Debug\AntiSqlInjection.csproj.CoreCompileInputs.cache
+C:\Users\BUI DOAN QUANG HUY\Desktop\New folder (2)\DoAnTTCSCN\AntiSqlInjection\obj\Debug\AntiSqlInjection.csproj.CopyComplete
+C:\Users\BUI DOAN QUANG HUY\Desktop\New folder (2)\DoAnTTCSCN\AntiSqlInjection\obj\Debug\AntiSqlInjection.dll
+C:\Users\BUI DOAN QUANG HUY\Desktop\New folder (2)\DoAnTTCSCN\AntiSqlInjection\obj\Debug\AntiSqlInjection.pdb

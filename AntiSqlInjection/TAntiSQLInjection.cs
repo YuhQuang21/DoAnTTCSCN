@@ -84,7 +84,7 @@ namespace AntiSQLInjection
 		 */
 		public void check_union_set(Boolean on)
 		{
-			this.e_union_set = on;
+			this.e_union_set = true;
 		}
 
 		/**
@@ -94,7 +94,7 @@ namespace AntiSQLInjection
 		 */
 		public void check_not_in_allowed_statement(Boolean on)
 		{
-			this.e_not_in_allowed_statement = on;
+			this.e_not_in_allowed_statement = true;
 		}
 
 		/**
@@ -104,7 +104,7 @@ namespace AntiSQLInjection
 		 */
 		public void check_stacking_queries(Boolean on)
 		{
-			this.e_stacking_queries = on;
+			this.e_stacking_queries = true;
 		}
 
 		/**
@@ -114,7 +114,7 @@ namespace AntiSQLInjection
 		 */
 		public void check_comment_at_the_end_of_statement(Boolean on)
 		{
-			this.e_comment_at_the_end_of_statement = on;
+			this.e_comment_at_the_end_of_statement = true;
 		}
 
 		/**
@@ -124,7 +124,7 @@ namespace AntiSQLInjection
 		 */
 		public void check_always_false_condition(Boolean on)
 		{
-			this.e_always_false_condition = on;
+			this.e_always_false_condition = true;
 		}
 
 		/**
@@ -134,7 +134,7 @@ namespace AntiSQLInjection
 		 */
 		public void check_always_true_condition(Boolean on)
 		{
-			this.e_always_true_condition = on;
+			this.e_always_true_condition = true;
 		}
 
 		public List<TSQLInjection> getSqlInjections()

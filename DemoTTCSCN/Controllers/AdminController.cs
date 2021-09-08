@@ -32,17 +32,30 @@ namespace DemoTTCSCN.Controllers
                 return View("Error");
             }
             var students = await StudentDAO.Instance.GetList();
-            List<StudentDto> model = new List<StudentDto>();
-            foreach (var item in students)
+            if (students != null)
             {
-                model.Add(new StudentDto
+                List<StudentDto> model = new List<StudentDto>();
+                foreach (var item in students)
                 {
-                    IdStudent = item.IDSinhVien,
-                    Name = item.HoTen
-                });
+                    model.Add(new StudentDto
+                    {
+                        IdStudent = item.IDSinhVien,
+                        Name = item.HoTen
+                    });
 
+                }
+                return View(model);
             }
-            return View(model);
+            else
+            {
+                var exception = ExceptionService.Instance.getException();
+                if (!String.IsNullOrEmpty(exception))
+                {
+                    ViewBag.Error = ExceptionService.Instance.getException();
+                    return View("ErrorInjection");
+                }
+            }
+            return View("/");
         }
         public async Task<ActionResult> GetStudentById (string Id)
         {
@@ -52,7 +65,17 @@ namespace DemoTTCSCN.Controllers
                 return View("Error");
             }
             var detail = await StudentDAO.Instance.GetStudentByID(Id);
-            return View(detail);
+            if (detail != null)
+            {
+                return View(detail);
+            }
+            var exception = ExceptionService.Instance.getException();
+            if (!String.IsNullOrEmpty(exception))
+            {
+                ViewBag.Error = ExceptionService.Instance.getException();
+                return View("ErrorInjection");
+            }
+            return View("/");
         }
         public async Task<ActionResult> UpdateStudent(FormCollection fields)
         {
@@ -75,14 +98,24 @@ namespace DemoTTCSCN.Controllers
                 DiemTichLuy = Convert.ToDouble(fields["diemTichLuy"]),
                 IDLop = fields["idClass"]
             };
-            Object obj = model.IDSinhVien;
             var result = await StudentDAO.Instance.Update(model);
+            
             if (result == 1)
             {
                 SetAlert("Sửa thành công", 1);
+                return RedirectToRoute("Detail", new { Id = model.IDSinhVien });
             }
-            else SetAlert("Sửa thất bại", 1);
-            return RedirectToRoute("Detail", new { Id = model.IDSinhVien }); 
+            else if (result == 0)
+            {
+                SetAlert("Sửa thất bại", 1);
+                var exception = ExceptionService.Instance.getException();
+                if (!String.IsNullOrEmpty(exception))
+                {
+                    ViewBag.Error = ExceptionService.Instance.getException();
+                    return View("ErrorInjection");
+                }
+            }
+            return View("/");
         }
         protected void SetAlert(string message, int type)
         {
